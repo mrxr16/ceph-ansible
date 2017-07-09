@@ -50,6 +50,7 @@ create_dev_list $1
   --device=/dev/${1} \
   --device=/dev/${1}1 \
   {% if raw_journal_devices|length > 0 -%}
+  --device={{ raw_journal_devices[0] }} \
   -e OSD_JOURNAL={{ raw_journal_devices[0] }} \
   {% else -%}
   --device=/dev/${1}2 \
