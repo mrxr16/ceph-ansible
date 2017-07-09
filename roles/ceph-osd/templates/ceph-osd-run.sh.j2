@@ -40,6 +40,7 @@ create_dev_list $1
   {% if not containerized_deployment_with_kv -%}
   -v /var/lib/ceph:/var/lib/ceph \
   -v /etc/ceph:/etc/ceph \
+  -v /dev/disk/by-partuuid:/dev/disk/by-partuuid \
   {% else -%}
   -e KV_TYPE={{kv_type}} \
   -e KV_IP={{kv_endpoint}} \
